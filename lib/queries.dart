@@ -14,7 +14,8 @@ class Queries extends ChangeNotifier {
     if (gs.size != 1) throw Exception("require only one group");
     CollectionReference q = db
         .collection("device")
-        .where("groupList", "array-contains-any", "[0]");
+        .where("groupList", "array-contains-any", [
+          "0"]);
     return await q.get();
   }
 
